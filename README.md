@@ -1,5 +1,5 @@
 # sispak
-Sistem Pakar
+Sistem Pakar : Sistem Pakar Sederhana Deteksi Kelenjar Getah Bening Terinfeksi Atau Kanker 
 - Rifqi Adliansyah (2017051003)
 - Nafasya Rahma Safitra (2017051023)
 - Aniisah Mufiidah Suharso (2017051012)
