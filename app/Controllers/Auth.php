@@ -22,6 +22,7 @@ class Auth extends BaseController
             'nama' => $this->request->getPost('nama'),
             'username' => $this->request->getPost('username'),
             'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
+            'role' => 'user'
         ];
 
         $akunModel->insert($data);
@@ -31,8 +32,9 @@ class Auth extends BaseController
 
         return redirect()->to('/');
     }
-    public function login(){
-        //    dd($this->request->getVar());
+
+    public function login()
+    {
         $userModel = new AkunModel();
 
         $username = $this->request->getPost('username');
@@ -40,15 +42,26 @@ class Auth extends BaseController
 
         $user = $userModel->where('username', $username)->first();
 
-        if ($user && password_verify($password, $user['password'])) {
-            // Login berhasil
-            $this->session->set('idAkun', $user['idAkun']);
-            return redirect()->to('/home'); 
-        } else {
-            // Login gagal
-            return redirect()->to('/')->with('error', 'Login failed. Check your username and password.');
+        if ($user) {
+            if ($user['role'] == 'admin') {
+                // Admin login with password check
+                if ($password === $user['password']) {
+                    $this->session->set('idAkun', $user['idAkun']);
+                    $this->session->set('role', $user['role']);
+                    return redirect()->to('/homeAdmin');
+                }
+            } else if (password_verify($password, $user['password'])) {
+                // Regular user login
+                $this->session->set('idAkun', $user['idAkun']);
+                $this->session->set('role', $user['role']);
+                return redirect()->to('/home');
+            }
         }
+
+    // Login failed
+    return redirect()->to('/')->with('error', 'Login failed. Check your username and password.');
     }
+
     public function logout()
     {
         $this->session->destroy();

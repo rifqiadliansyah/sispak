@@ -10,9 +10,11 @@ $routes->post('/register', 'Auth::register');
 $routes->post('/login', 'Auth::login');
 $routes->get('logout', 'Auth::logout');
 
+$routes->get('/home', 'Pages::showHomePage', );
+$routes->post('/cekHasil', 'Pages::cekHasil', );
+$routes->get('/histori', 'Pages::showHistori',);
 
-$routes->get('/home', 'Pages::showHomePage');
-$routes->post('/cekHasil', 'Pages::cekHasil');
-
-$routes->get('/histori', 'Pages::showHistori');
+$routes->get('/homeAdmin', 'Pages::showHomeAdmin', );
+$routes->get('/akun', 'Pages::showDaftarAkun', );
+$routes->get('/unauthorized', 'Pages::showUnauthorizedPage', );
 

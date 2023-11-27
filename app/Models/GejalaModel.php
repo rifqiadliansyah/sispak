@@ -35,5 +35,11 @@ class GejalaModel extends Model
         ->findAll();
     }
 
-
+    public function getHistoriByUserId($userId) 
+    {
+        return $this->select('gejala.*, akun.nama')
+            ->join('akun', 'akun.idAkun = gejala.id_pengguna')
+            ->where('gejala.id_pengguna', $userId)
+            ->findAll();
+    }
 }
