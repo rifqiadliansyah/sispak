@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use CodeIgniter\I18n\Time;
 use App\Models\GejalaModel;
+use App\Models\AkunModel;
 use App\Controllers\BaseController;
 
 class Pages extends BaseController
@@ -11,26 +12,49 @@ class Pages extends BaseController
     public function showHomePage()
     {   
         // Cek autentikasi
-        if (!$this->session->has('idAkun')) {
-            return redirect()->to('/');
+        $role = $this->session->get('role');
+
+        if ($role != 'admin') {
+            $role = $this->session->get('role');
+
+            if (!$this->session->has('idAkun')) {
+                return redirect()->to('/home');
+            }
+            return view('home');
+        } else {
+            return redirect()->to('/unauthorized');
         }
-        return view('home');
     }
 
     public function showHistori()
     {
         // Cek autentikasi
-        if (!$this->session->has('idAkun')) {
-            return redirect()->to('/');
+        $role = $this->session->get('role');
+        $userId = $this->session->get('idAkun');
+
+        if ($role == 'admin') {
+            if (!$this->session->has('idAkun')) {
+                return redirect()->to('/histori');
+            }
+            $gejalaModel = new GejalaModel();
+            $data['gejala'] = $gejalaModel->getGejalaWithAkun();
+            // dd($data);
+            return view('adminHistori',$data);
+        } else {
+            if (!$this->session->has('idAkun')) {
+                return redirect()->to('/histori');
+            }
+            $gejalaModel = new GejalaModel();
+            $data['gejala'] = $gejalaModel->getHistoriByUserId($userId);
+            // dd($data);
+            return view('histori',$data);
         }
-        $gejalaModel = new GejalaModel();
-        $data['gejala'] = $gejalaModel->getGejalaWithAkun();
-        // dd($data);
-        return view('histori',$data);
+        return redirect()->to('/unauthorized');
     }
 
     public function cekHasil()
-    {    $idLogin = $this->session->get('idAkun');
+    {    
+        $idLogin = $this->session->get('idAkun');
         // dd($this->request->getVar());
         $benjolan = $this->request->getPost('benjolan');
         $demam = $this->request->getPost('demam');
@@ -127,9 +151,38 @@ class Pages extends BaseController
            
             $result = $gejalaModel->insert($data);
             return redirect()->back();
-        }
+        }   
+    }
 
-        
+    // Menampilkan halaman home admin
+    public function showHomeAdmin() 
+    {
+        return view('adminHome');
+    }
+
+    // Menampilkan tabel semua akun terdaftar
+    public function showDaftarAkun() 
+    {
+        $role = $this->session->get('role');
+        $userId = $this->session->get('idAkun');
+
+        if ($role == 'admin') {
+            if (!$this->session->has('idAkun')) {
+                return redirect()->to('/akun');
+            }
+            $akunModel = new AkunModel();
+            $data['akun'] = $akunModel->getAllAkun();
+            // dd($data);
+            return view('daftarAkun',$data);
+        } else {
+            return redirect()->to('/unauthorized');
+        }
+    }
+
+    // Menampilkan halaman jika akun tidak memiliki akses
+    public function showUnauthorizedPage() 
+    {
+        return view('unauthorized');
     }
 
 }
