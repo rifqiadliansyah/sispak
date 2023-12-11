@@ -13,8 +13,8 @@
     <link rel="stylesheet" href="<?= base_url('css/style.css'); ?>">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="<?= base_url('js/header.js'); ?>"></script>
-
     <title>SPSDKI KGB</title>
+
 </head>
 <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #57b846">
     <div class="container-fluid">
@@ -31,7 +31,7 @@
                     <a class="nav-link text-light" href="/histori">Histori Saya</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-light" href="/histori">Konsultasi</a>
+                    <a class="nav-link text-light" href="/konsultasi">Konsultasi</a>
                 </li>
             </ul>
             <form class="d-flex">

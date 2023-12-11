@@ -10,7 +10,7 @@ if ($session->getFlashdata('success')) {
 ?>
 
 <div class="card  mt-5">
-    <div class="card-header text-center">
+    <div class="card-header text-center" style="background-color: #f8f9fa; color: #008000; padding: 10px; font-family: 'Helvetica', sans-serif; font-size: 24px; font-weight: bold;">
         Lakukan Pengecekan Kanker atau Infeksi Kelenjar Getah Bening
     </div>
     <div class="card-body">

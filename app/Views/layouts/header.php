@@ -12,7 +12,7 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="<?= base_url('js/header.js'); ?>"></script>
 
-    <title>SPSDKI KGB</title>
+    <title>SPSDKI aksksksk</title>
 </head>
 <nav class="navbar navbar-expand-custom navbar-mainbg">
     <a class="navbar-brand navbar-logo" href="#">Sistem Pakar Deteksi Kanker / Infeksi Kelenjar Getah Bening</a>

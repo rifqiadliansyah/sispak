@@ -10,7 +10,7 @@ if ($session->getFlashdata('success')) {
 ?>
 
 <div>
-    <h1 >Selamat Datang di Dashboard Admin</h1>
+    <h1 >Selamat Datang di Dashboard a</h1>
 </div>
 
 <?= $this->endSection(); ?>
