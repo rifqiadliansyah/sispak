@@ -5,10 +5,8 @@
 <style>
     body {
         padding: 0;
-        font-family: 'Source Sans Pro', sans-serif;
         margin: 0;
         overflow-x: hidden;
-        /* Untuk mengatasi overflow horizontal */
     }
 
     .container {
@@ -37,7 +35,6 @@
 
     .card {
         width: calc(50% - 20px);
-        /* 50% dari lebar container minus margin */
         border-radius: 15px;
         overflow: hidden;
         box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
@@ -78,10 +75,9 @@ if ($session->getFlashdata('success')) {
     }
     ?>
 
-    <h1>Konsultasi</h1>
-    <p>Halaman ini ditujukan sebagai rekomendasi bagi anda jika ingin melakukan pengecekan lebih lanjut terkait keluhan pnyakit yang diderita utnuk mendapatkan informasi lebih akurat dan penanganan lebih lanjut</p>
+    <h1>Konsultasi Lanjutan</h1>
+    <p>Halaman ini ditujukan sebagai rekomendasi RS rujukan bagi anda jika ingin melakukan pengecekan agar mendapatkan informasi lebih akurat dan penanganan lebih lanjut terkait keluhan penyakit yang diderita</p>
 
-    <!-- Rumah Sakit 1 -->
     <div class="card">
         <div class="head-card">
             <img src="https://www.rsuripsumoharjo.com/asset/img/slider2.jpg" alt="RS Urip Sumoharjo">
@@ -91,13 +87,11 @@ if ($session->getFlashdata('success')) {
             <p>Alamat: No.200, Jl. Urip Sumoharjo, Gn. Sulah, Way Halim, Kota Bandar Lampung, Lampung</p>
             <p>Kontak: (021) 123-4567</p>
             <div class="card-buttons">
-                <button class="button button-telpon" onclick="telpon('7217713231')">Telpon</button>
                 <button class="button button-maps" onclick="petunjukMaps('-5.39124010,105.27645200')">Petunjuk Maps</button>
             </div>
         </div>
     </div>
 
-    <!-- Rumah Sakit 2 -->
     <div class="card">
         <div class="head-card">
             <img src="https://api.covid19.lampungprov.go.id/img/rs/1585377907284.jpg" alt="RS Abdul Moeloek">
@@ -107,19 +101,13 @@ if ($session->getFlashdata('success')) {
             <p>Alamat: Jl. Dr. Rivai No.6, Penengahan, Kec. Tj. Karang Pusat, Kota Bandar Lampung, Lampung 35112, Indonesia</p>
             <p>Kontak: 0811 7270 537</p>
             <div class="card-buttons">
-                <button class="button button-telpon" onclick="telpon('08117270537')">Telpon</button>
                 <button class="button button-maps" onclick="petunjukMaps('-5.4051911,105.2525514')">Petunjuk Maps</button>
             </div>
         </div>
     </div>
-
-    <!-- TambahAAN -->
 </div>
-<script>
-    function telpon(nomor) {
-        window.location.href = 'tel:' + nomor;
-    }
 
+<script>
     function petunjukMaps(koordinat) {
         window.location.href = 'https://www.google.com/maps/dir/?api=1&destination=' + koordinat;
     }
