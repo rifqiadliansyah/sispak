@@ -226,7 +226,7 @@
             <!-- TODO:Login -->
             <p style="margin-left: 15px;">Belum punya akun? Sign up untuk mendaftarkan akun, kemudian login.</p>
             <form action="/login" method="POST">
-                <input type="text" name="username" placeholder="username" />
+                <input type="text" name="username" placeholder="Enter username" />
                 <input type="password" name="password" placeholder="Enter password" />
                 <button type="submit" class="btn login">login</button>
                 <hr />
@@ -245,7 +245,7 @@
             <p style="margin-left: 15px;">Sudah punya akun? Login untuk memulai pemindaian penyakit. </p>
             <form action="/register" method="POST">
                 <?= csrf_field(); ?>
-                <input name="nama" type="text" placeholder="Nama Lengkap" />
+                <input name="nama" type="text" placeholder="Enter full name" />
                 <input name="username" type="text" placeholder="Choose username" />
                 <input name="password" type="password" placeholder="Create password" />
                 <button type="submit" class="btn signup">create account</button>
