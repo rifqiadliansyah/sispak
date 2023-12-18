@@ -12,26 +12,26 @@
 
     <link rel="stylesheet" href="<?= base_url('css/style.css'); ?>">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script src="<?= base_url('js/header.js'); ?>"></script>
+    <!-- <script src="<?= base_url('js/header.js'); ?>"></script> -->
     <title>SPSDKI KGB</title>
 
 </head>
 <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #57b846">
     <div class="container-fluid">
-        <a class="navbar-brand text-light" href="#">SISTEM PAKAR DETEKSI KANKER ATAU INFEKSI</a>
+        <!-- <a class="navbar-brand text-light" href="#">SISTEM PAKAR DETEKSI KANKER ATAU INFEKSI</a> -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active text-light" aria-current="page" href="/home">Home</a>
+                    <a class="nav-link <?= (current_url(true)->getSegment(1) == 'home') ? 'active text-light' : '' ?>" aria-current="page" href="/home">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-light" href="/histori">Histori Saya</a>
+                    <a class="nav-link <?= (current_url(true)->getSegment(1) == 'histori') ? 'active text-light' : '' ?>" href="/histori">Histori Saya</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-light" href="/konsultasi">Konsultasi</a>
+                    <a class="nav-link <?= (current_url(true)->getSegment(1) == 'konsultasi') ? 'active text-light' : '' ?>" href="/konsultasi">Konsultasi</a>
                 </li>
             </ul>
             <form class="d-flex">
@@ -56,5 +56,11 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 
 </body>
+
+<style>
+    .navbar-nav .nav-item .nav-link.active.text-light {
+        font-weight: bold;
+    }
+</style>
 
 </html>

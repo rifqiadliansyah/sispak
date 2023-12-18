@@ -9,11 +9,17 @@ if ($session->getFlashdata('success')) {
 }
 ?>
 
-<div class="card  mt-5">
+<div class="card">
     <div class="card-header text-center" style="background-color: #f8f9fa; color: #008000; padding: 10px; font-family: 'Helvetica', sans-serif; font-size: 24px; font-weight: bold;">
-        Lakukan Pengecekan Kanker atau Infeksi Kelenjar Getah Bening
+        Sistem Pakar Deteksi Kanker/Infeksi Kelenjar Getah Bening
     </div>
     <div class="card-body">
+        <div>
+            <p>
+                Silakan lakukan pemeriksaan apakah Anda mengidap kanker atau infeksi kelenjar getah bening
+                dengan menjawab pertanyaan-pertanyaan berikut!
+            </p>
+        </div>
         <form action="/cekHasil" method="POST" style="margin-left: 20px;margin-top: 30px;">
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">1) Apakah Ada Benjolan Terasa Nyeri?</label>
@@ -151,12 +157,16 @@ if ($session->getFlashdata('success')) {
                     </label>
                 </div>
             </div>
-
+            <div class="mt-5">
+                <p>
+                    Tekan submit untuk melihat hasil!
+                </p>
+            </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
     <div class="card-footer text-light text-center bg-success">
-        Silahkan Tekan Sumbit Untuk melihat hasil
+        Ilmu Komputer Universitas Lampung
     </div>
 </div>
 
