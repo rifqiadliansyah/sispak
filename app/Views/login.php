@@ -212,8 +212,11 @@
 
     <?php endif; ?>
 
-    <div class="form-modal">
+    <div class="text-center" style="margin-top: 30px; margin-bottom: -50px;">
+        <b>Sistem Pakar Deteksi Kanker/Kelenjar Getah Bening Terinfeksi</b>
+    </div>
 
+    <div class="form-modal">
         <div class="form-toggle">
             <button id="login-toggle" onclick="toggleLogin()">log in</button>
             <button id="signup-toggle" onclick="toggleSignup()">sign up</button>
@@ -221,13 +224,13 @@
 
         <div id="login-form">
             <!-- TODO:Login -->
-            <p style="margin-left: 15px;">Sistem Pakar Sederhana Deteksi Kelenjar Getah Bening Terinfeksi Atau Kanker </p>
+            <p style="margin-left: 15px;">Belum punya akun? Sign up untuk mendaftarkan akun, kemudian login.</p>
             <form action="/login" method="POST">
                 <input type="text" name="username" placeholder="username" />
                 <input type="password" name="password" placeholder="Enter password" />
                 <button type="submit" class="btn login">login</button>
-                <p><a href="javascript:void(0)">Forgot Password</a></p>
                 <hr />
+                <p><a href="javascript:void(0)">Forgot Password</a></p>
                 <?php
                 $session = session();
                 if ($session->getFlashdata('error')) {
@@ -239,15 +242,13 @@
 
         <div id="signup-form">
             <!-- TODO:Register -->
-            <p style="margin-left: 15px;">Sistem Pakar Sederhana Deteksi Kelenjar Getah Bening Terinfeksi Atau Kanker </p>
+            <p style="margin-left: 15px;">Sudah punya akun? Login untuk memulai pemindaian penyakit. </p>
             <form action="/register" method="POST">
                 <?= csrf_field(); ?>
                 <input name="nama" type="text" placeholder="Nama Lengkap" />
                 <input name="username" type="text" placeholder="Choose username" />
                 <input name="password" type="password" placeholder="Create password" />
                 <button type="submit" class="btn signup">create account</button>
-                <hr />
-
             </form>
         </div>
 
